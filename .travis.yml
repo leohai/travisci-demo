@@ -1,10 +1,19 @@
 language: node_js
 node_js:
   - 10
-
 cache: yarn
 
 install:
   - yarn install
 script:
   - npm run build
+deploy:
+  provider: pages
+  local_dir: dist/
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  keep_history: false
+  email: 448456376@qq.com
+  name: leohai
+  on:
+    branch: master
